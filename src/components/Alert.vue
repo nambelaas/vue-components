@@ -9,8 +9,11 @@ export default{
     name:"Alert",
     props:{
         type:{
-            type:String,
-            default:"success"
+            type: String,
+            default: "success", 
+            validator: function(value: string){
+                return ["success","warning","danger"].includes(value)
+            }
         },
         message:{
             type: String,
