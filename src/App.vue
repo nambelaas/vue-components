@@ -14,6 +14,6 @@ const alert = ref({
 
 <template>
   <!-- <Alert :message="items+' item has been removed'" type="success" :show="true"/> -->
-  <Alert :message="items+' item has been removed'" type="danger" />
+  <Alert :message="items+' item has been removed'" type="danger" :show="show" @alert-close="show = false" />
   <!-- <Alerts :message="items+' item has been removed'" type="errors" :types="alert.type"/> -->
 </template>

@@ -1,6 +1,7 @@
 <template>
-    <div :class="['alert','alert-'+type]" v-show="show">
+    <div :class="['alert','alert-'+type, 'alert-dismissable']" v-show="show" >
         {{ message }}
+        <button type="button" @click="close" class="btn-close">&times;</button>
     </div>
 </template>
 
@@ -23,6 +24,12 @@ export default{
             type: Boolean,
             default: true
         }
-    }
+    },
+    methods:{
+        close(){
+            this.$emit("alertClose")
+        }
+    },
+    emits:["alertClose"]
 }
 </script>
