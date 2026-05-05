@@ -1,0 +1,59 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+}
+
+.alert {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.alert-success {
+  background-color:hsl(160, 48%, 58%);
+  color: hsl(160, 87%, 15%);
+  border-color: hsl(160, 87%, 15%);
+}
+
+.alert-danger {
+  background-color:hsl(341, 48%, 58%);
+  color: hsl(341, 94%, 24%);
+  border-color: hsl(341, 94%, 24%);
+}
+
+.alert-warning {
+  background-color:hsl(54, 48%, 58%);
+  color: hsl(54, 91%, 17%);
+  border-color: hsl(54, 91%, 17%);
+}
