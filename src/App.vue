@@ -28,6 +28,7 @@ export default {
       type: ["success", "warning", "danger"],
     },
     email: "",
+    password: "",
   }),
   methods: {
     handleSubmit(email: String, password: String): void {
@@ -44,13 +45,18 @@ export default {
     <!-- <Alerts :message="items+' item has been removed'" type="errors" :types="alert.type"/> -->
     <!-- <LoginForm @submit="handleSubmit" /> -->
     <!-- <input
-      type="email"
-      v-model="email"
-      class="form-control"
-      placeholder="Email"
+    type="email"
+    v-model="email"
+    class="form-control"
+    placeholder="Email"
     /> -->
     <!-- <BaseInput v-model="email" label="Email" /> -->
-    <BaseInput v-model.lowercase="email" label="Email" />
-    {{ email }}
+    <!-- <BaseInput v-model.lowercase="email" label="Email" /> -->
+    <LoginForm
+      @submit="handleSubmit"
+      v-model:email.lowercase="email"
+      v-model:password="password"
+    />
+    {{ email }} - {{ password }}
   </div>
 </template>
