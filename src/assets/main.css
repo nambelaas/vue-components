@@ -66,3 +66,10 @@ a,
   font-size: 1.2rem;
   font-weight: bold;
 }
+
+input{
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+}

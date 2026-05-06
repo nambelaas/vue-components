@@ -1,8 +1,9 @@
 <script lang="ts">
-import { ref } from 'vue'
-import Alert from './components/Alert.vue';
-import Alerts from './components/Alerts.vue';
-import LoginForm from './components/LoginForm.vue';
+import { ref } from "vue";
+import Alert from "./components/Alert.vue";
+import Alerts from "./components/Alerts.vue";
+import LoginForm from "./components/LoginForm.vue";
+import BaseInput from "./components/BaseInput.vue";
 
 // const items = ref(3)
 // const show = ref(true)
@@ -12,42 +13,43 @@ import LoginForm from './components/LoginForm.vue';
 // })
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Alert,
     Alerts,
-    LoginForm
+    LoginForm,
+    BaseInput,
   },
-  props:{
-    items: {
-      type: Number,
-      default: 0
-    },
-    show:{
-      type: Boolean,
-      default: true
-    },
+  data: () => ({
+    items: 3,
+    show: true,
     alert: {
-      type: Object,
-      default: () => ({
-        message: "Message",
-        type: ["success", "warning", "danger"]
-      })
-    }
+      message: "Message",
+      type: ["success", "warning", "danger"],
+    },
+    email: "",
+  }),
+  methods: {
+    handleSubmit(email: String, password: String): void {
+      alert(email + " " + password);
+    },
   },
-  methods:{
-    handleSubmit(email: String, password: String): void{
-      alert(email + " " + password)
-    }
-  }
-}
-
+};
 </script>
 
 <template>
-  <!-- <Alert :message="items+' item has been removed'" type="success" :show="true"/> -->
-  <!-- <Alert :message="items+' item has been removed'" type="danger" :show="show" @alert-close="show = false" /> -->
-  <!-- <Alerts :message="items+' item has been removed'" type="errors" :types="alert.type"/> -->
-   <LoginForm @submit="handleSubmit" />
-
+  <div class="container py-5 flex flex-col gap-3">
+    <!-- <Alert :message="items+' item has been removed'" type="success" :show="true"/> -->
+    <!-- <Alert :message="items+' item has been removed'" type="danger" :show="show" @alert-close="show = false" /> -->
+    <!-- <Alerts :message="items+' item has been removed'" type="errors" :types="alert.type"/> -->
+    <!-- <LoginForm @submit="handleSubmit" /> -->
+    <!-- <input
+      type="email"
+      v-model="email"
+      class="form-control"
+      placeholder="Email"
+    /> -->
+    <BaseInput v-model="email" label="Email" />
+    {{ email }}
+  </div>
 </template>
