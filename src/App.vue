@@ -49,7 +49,8 @@ export default {
       class="form-control"
       placeholder="Email"
     /> -->
-    <BaseInput v-model="email" label="Email" />
+    <!-- <BaseInput v-model="email" label="Email" /> -->
+    <BaseInput v-model.lowercase="email" label="Email" />
     {{ email }}
   </div>
 </template>

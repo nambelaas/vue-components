@@ -17,6 +17,10 @@ export default {
       type: String,
       required: true,
     },
+    modelModifiers: {
+      type: Object,
+      default: () => ({}),
+    },
   },
   emits: ["update:modelValue"],
   computed: {
@@ -25,6 +29,9 @@ export default {
         return this.modelValue;
       },
       set(value: String) {
+        if (this.modelModifiers.lowercase) {
+          value = value.toLowerCase();
+        }
         this.$emit("update:modelValue", value);
       },
     },
