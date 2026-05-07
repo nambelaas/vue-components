@@ -5,6 +5,7 @@ import Alerts from "./components/Alerts.vue";
 import LoginForm from "./components/LoginForm.vue";
 import BaseInput from "./components/BaseInput.vue";
 import BaseButton from "./components/BaseButton.vue";
+import Modals from "./components/Modal.vue";
 
 export default {
   name: "App",
@@ -14,10 +15,11 @@ export default {
     LoginForm,
     BaseInput,
     BaseButton,
+    Modals,
   },
   data: () => ({
     items: 3,
-    show: false,
+    show: true,
     alert: {
       message: "Message",
       type: ["success", "warning", "danger"],
@@ -35,33 +37,40 @@ export default {
 </script>
 
 <template>
-  <div class="mx-6 py-5 flex flex-col gap-3">
-    <!-- <Alert :message="items+' item has been removed'" type="success" :show="true"/> -->
-    <Alert type="danger" :show="show" @alert-close="show = false">
+  <!-- <div class="flex flex-col gap-3"> -->
+  <!-- <Alert :message="items+' item has been removed'" type="success" :show="true"/> -->
+  <!-- <Alert type="danger" :show="show" @alert-close="show = false">
       <span>{{ message }}</span>
-    </Alert>
-    <!-- <Alerts :message="items+' item has been removed'" type="errors" :types="alert.type"/> -->
-    <!-- <LoginForm @submit="handleSubmit" /> -->
-    <!-- <input
+    </Alert> -->
+  <!-- <Alerts :message="items+' item has been removed'" type="errors" :types="alert.type"/> -->
+  <!-- <LoginForm @submit="handleSubmit" /> -->
+  <!-- <input
     type="email"
     v-model="email"
     class="border border-gray-300 rounded px-3 py-2 w-full"
     placeholder="Email"
     /> -->
-    <!-- <BaseInput v-model="email" label="Email" /> -->
-    <BaseInput v-model.lowercase="email" label="Email" type="email" />
-    <!-- <LoginForm
+  <!-- <BaseInput v-model="email" label="Email" /> -->
+  <!-- <BaseInput v-model.lowercase="email" label="Email" type="email" /> -->
+  <!-- <LoginForm
       @submit="handleSubmit"
       v-model:email.lowercase="email"
       v-model:password="password"
     /> -->
-    <BaseButton
+  <!-- <BaseButton
       text="Submit"
       theme="primary"
       @click="show = true"
       class="mt-3"
       id="test"
-    />
-    <!-- {{ email }} - {{ password }} -->
-  </div>
+    /> -->
+  <!-- {{ email }} - {{ password }} -->
+  <!-- </div> -->
+  <Modals :show="show">
+    <template #header><h2 class="text-lg font-bold">Hii</h2></template>
+    <p>Welcome to the page</p>
+    <template #footer>
+      <BaseButton text="Submit" @click="show = false" />
+    </template>
+  </Modals>
 </template>
