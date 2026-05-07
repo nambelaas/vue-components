@@ -51,7 +51,7 @@ export default {
     placeholder="Email"
     /> -->
     <!-- <BaseInput v-model="email" label="Email" /> -->
-    <BaseInput v-model.lowercase="email" label="Email" />
+    <BaseInput v-model.lowercase="email" label="Email" type="email" />
     <!-- <LoginForm
       @submit="handleSubmit"
       v-model:email.lowercase="email"
