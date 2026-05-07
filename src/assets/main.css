@@ -40,7 +40,9 @@ a,
   padding: 1rem;
   border-radius: 6px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  
 }
 
 .alert-success {

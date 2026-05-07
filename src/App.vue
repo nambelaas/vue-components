@@ -24,6 +24,7 @@ export default {
     },
     email: "",
     password: "",
+    message: "Alert Message",
   }),
   methods: {
     handleSubmit(email: String, password: String): void {
@@ -36,12 +37,9 @@ export default {
 <template>
   <div class="mx-6 py-5 flex flex-col gap-3">
     <!-- <Alert :message="items+' item has been removed'" type="success" :show="true"/> -->
-    <Alert
-      :message="items + ' item has been removed'"
-      type="danger"
-      :show="show"
-      @alert-close="show = false"
-    />
+    <Alert type="danger" :show="show" @alert-close="show = false">
+      <span>{{ message }}</span>
+    </Alert>
     <!-- <Alerts :message="items+' item has been removed'" type="errors" :types="alert.type"/> -->
     <!-- <LoginForm @submit="handleSubmit" /> -->
     <!-- <input

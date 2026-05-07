@@ -1,6 +1,6 @@
 <template>
     <div :class="['alert','alert-'+type, 'alert-dismissable']" v-show="show" >
-        {{ message }}
+        <slot>Default Message</slot>
         <button type="button" @click="close" class="btn-close">&times;</button>
     </div>
 </template>
@@ -16,10 +16,10 @@ export default{
                 return ["success","warning","danger"].includes(value)
             }
         },
-        message:{
-            type: String,
-            required: true
-        },
+        // message:{
+        //     type: String,
+        //     required: true
+        // },
         show:{
             type: Boolean,
             default: true
