@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import './base.css';
+@import 'tailwindcss';
+/* @import './base.css'; */
 
 #app {
   max-width: 1280px;
@@ -72,4 +72,72 @@ input{
   border: 1px solid #ccc;
   border-radius: 8px;
   width: 100%;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  background-color: hsl(160, 48%, 58%);
+  color: hsl(160, 87%, 15%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: hsl(160, 48%, 68%);
+}
+
+.btn-primary {
+  background-color: hsl(160, 48%, 58%);
+  color: hsl(160, 87%, 15%);
+}
+
+.btn-primary:hover {
+  background-color: hsl(160, 48%, 68%);
+}
+
+.btn-secondary {
+  background-color: hsl(54, 48%, 58%);
+  color: hsl(54, 91%, 17%);
+}
+
+.btn-secondary:hover {
+  background-color: hsl(54, 48%, 68%);
+}
+
+.btn-success {
+  background-color: hsl(160, 48%, 58%);
+  color: hsl(160, 87%, 15%);
+}
+
+.btn-success:hover {
+  background-color: hsl(160, 48%, 68%);
+}
+
+.btn-danger {
+  background-color: hsl(341, 48%, 58%);
+  color: hsl(341, 94%, 24%);
+}
+
+.btn-danger:hover {
+  background-color: hsl(341, 48%, 68%);
+}
+
+.btn-warning {
+  background-color: hsl(54, 48%, 58%);
+  color: hsl(54, 91%, 17%);
+}
+
+.btn-warning:hover {
+  background-color: hsl(54, 48%, 68%);
+}
+
+.btn-info {
+  background-color: hsl(200, 48%, 58%);
+  color: hsl(200, 87%, 15%);
+}
+
+.btn-info:hover {
+  background-color: hsl(200, 48%, 68%);
 }

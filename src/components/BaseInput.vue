@@ -1,7 +1,7 @@
 <template>
   <div class="mb-3">
-    <label class="form-label mb-2">{{ label }}</label>
-    <input type="text" class="form-control" v-model="value" />
+    <label class="block mb-2 text-sm font-medium">{{ label }}</label>
+    <input type="text" class="border border-gray-300 rounded px-3 py-2 w-full" v-model="value" />
   </div>
 </template>
 

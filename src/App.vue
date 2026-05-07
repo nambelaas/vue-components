@@ -4,13 +4,7 @@ import Alert from "./components/Alert.vue";
 import Alerts from "./components/Alerts.vue";
 import LoginForm from "./components/LoginForm.vue";
 import BaseInput from "./components/BaseInput.vue";
-
-// const items = ref(3)
-// const show = ref(true)
-// const alert = ref({
-//   message: "Message",
-//   type: ["success", "warning", "danger"]
-// })
+import BaseButton from "./components/BaseButton.vue";
 
 export default {
   name: "App",
@@ -19,10 +13,11 @@ export default {
     Alerts,
     LoginForm,
     BaseInput,
+    BaseButton,
   },
   data: () => ({
     items: 3,
-    show: true,
+    show: false,
     alert: {
       message: "Message",
       type: ["success", "warning", "danger"],
@@ -39,24 +34,36 @@ export default {
 </script>
 
 <template>
-  <div class="container py-5 flex flex-col gap-3">
+  <div class="mx-6 py-5 flex flex-col gap-3">
     <!-- <Alert :message="items+' item has been removed'" type="success" :show="true"/> -->
-    <!-- <Alert :message="items+' item has been removed'" type="danger" :show="show" @alert-close="show = false" /> -->
+    <Alert
+      :message="items + ' item has been removed'"
+      type="danger"
+      :show="show"
+      @alert-close="show = false"
+    />
     <!-- <Alerts :message="items+' item has been removed'" type="errors" :types="alert.type"/> -->
     <!-- <LoginForm @submit="handleSubmit" /> -->
     <!-- <input
     type="email"
     v-model="email"
-    class="form-control"
+    class="border border-gray-300 rounded px-3 py-2 w-full"
     placeholder="Email"
     /> -->
     <!-- <BaseInput v-model="email" label="Email" /> -->
-    <!-- <BaseInput v-model.lowercase="email" label="Email" /> -->
-    <LoginForm
+    <BaseInput v-model.lowercase="email" label="Email" />
+    <!-- <LoginForm
       @submit="handleSubmit"
       v-model:email.lowercase="email"
       v-model:password="password"
+    /> -->
+    <BaseButton
+      text="Submit"
+      theme="primary"
+      @click="show = true"
+      class="mt-3"
+      id="test"
     />
-    {{ email }} - {{ password }}
+    <!-- {{ email }} - {{ password }} -->
   </div>
 </template>

@@ -7,11 +7,11 @@
         type="email"
         :value="email"
         @input="inputEmail"
-        class="form-control"
+        class="border border-gray-300 rounded px-3 py-2 w-full"
         placeholder="Email"
       />
     </div>
-    <div class="mb-3">
+    <div class="w-full mb-3">
       <!-- <input
         type="password"
         v-model="password"
@@ -22,11 +22,13 @@
         type="password"
         :value="password"
         @input="inputPassword"
-        class="form-control"
+        class="border border-gray-300 rounded px-3 py-2 w-full"
         placeholder="Password"
       />
     </div>
-    <button type="submit">Login</button>
+    <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">
+      Login
+    </button>
   </form>
 </template>
 
