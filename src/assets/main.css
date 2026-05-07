@@ -144,3 +144,9 @@ input{
 .btn-info:hover {
   background-color: hsl(200, 48%, 68%);
 }
+
+.alert-link {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: bold;
+}

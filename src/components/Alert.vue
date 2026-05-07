@@ -1,35 +1,38 @@
 <template>
-    <div :class="['alert','alert-'+type, 'alert-dismissable']" v-show="show" >
-        <slot>Default Message</slot>
-        <button type="button" @click="close" class="btn-close">&times;</button>
-    </div>
+  <div :class="['alert', 'alert-' + type, 'alert-dismissable']" v-show="show">
+    <slot :alertLink="alertLink">Default Message</slot>
+    <button type="button" @click="close" class="btn-close">&times;</button>
+  </div>
 </template>
 
 <script lang="ts">
-export default{
-    name:"Alert",
-    props:{
-        type:{
-            type: String,
-            default: "success", 
-            validator: function(value: string){
-                return ["success","warning","danger"].includes(value)
-            }
-        },
-        // message:{
-        //     type: String,
-        //     required: true
-        // },
-        show:{
-            type: Boolean,
-            default: true
-        }
+export default {
+  name: "Alert",
+  props: {
+    type: {
+      type: String,
+      default: "success",
+      validator: function (value: string) {
+        return ["success", "warning", "danger"].includes(value);
+      },
     },
-    methods:{
-        close(){
-            this.$emit("alertClose")
-        }
+    // message:{
+    //     type: String,
+    //     required: true
+    // },
+    show: {
+      type: Boolean,
+      default: true,
     },
-    emits:["alertClose"]
-}
+  },
+  methods: {
+    close() {
+      this.$emit("alertClose");
+    },
+  },
+  emits: ["alertClose"],
+  data: () => ({
+    alertLink: "alert-link",
+  }),
+};
 </script>
