@@ -6,6 +6,7 @@ import LoginForm from "./components/LoginForm.vue";
 import BaseInput from "./components/BaseInput.vue";
 import BaseButton from "./components/BaseButton.vue";
 import Modals from "./components/Modal.vue";
+import TodoList from "./components/TodoList.vue";
 
 export default {
   name: "App",
@@ -16,6 +17,7 @@ export default {
     BaseInput,
     BaseButton,
     Modals,
+    TodoList,
   },
   data: () => ({
     items: 3,
@@ -37,35 +39,35 @@ export default {
 </script>
 
 <template>
-  <div class="flex flex-col gap-3">
-    <!-- <Alert :message="items+' item has been removed'" type="success" :show="true"/> -->
-    <!-- <Alert type="danger" :show="show" @alert-close="show = false">
+  <!-- <div class="flex flex-col gap-3"> -->
+  <!-- <Alert :message="items+' item has been removed'" type="success" :show="true"/> -->
+  <!-- <Alert type="danger" :show="show" @alert-close="show = false">
       <span>{{ message }}</span>
     </Alert> -->
-    <!-- <Alerts :message="items+' item has been removed'" type="errors" :types="alert.type"/> -->
-    <!-- <LoginForm @submit="handleSubmit" /> -->
-    <!-- <input
+  <!-- <Alerts :message="items+' item has been removed'" type="errors" :types="alert.type"/> -->
+  <!-- <LoginForm @submit="handleSubmit" /> -->
+  <!-- <input
     type="email"
     v-model="email"
     class="border border-gray-300 rounded px-3 py-2 w-full"
     placeholder="Email"
     /> -->
-    <!-- <BaseInput v-model="email" label="Email" /> -->
-    <!-- <BaseInput v-model.lowercase="email" label="Email" type="email" /> -->
-    <!-- <LoginForm
+  <!-- <BaseInput v-model="email" label="Email" /> -->
+  <!-- <BaseInput v-model.lowercase="email" label="Email" type="email" /> -->
+  <!-- <LoginForm
       @submit="handleSubmit"
       v-model:email.lowercase="email"
       v-model:password="password"
     /> -->
-    <!-- <BaseButton
+  <!-- <BaseButton
       text="Submit"
       theme="primary"
       @click="show = true"
       class="mt-3"
       id="test"
     /> -->
-    <!-- {{ email }} - {{ password }} -->
-    <Alert
+  <!-- {{ email }} - {{ password }} -->
+  <!-- <Alert
       type="success"
       :show="show"
       @alert-close="show = false"
@@ -75,8 +77,8 @@ export default {
         >{{ message }}
         <a href="#" :class="scopedSlot.alertLink">Alert Link!</a></span
       >
-    </Alert>
-  </div>
+    </Alert> -->
+  <!-- </div> -->
   <!-- <Modals :show="show">
     <template #header><h2 class="text-lg font-bold">Hii</h2></template>
     <p>Welcome to the page</p>
@@ -84,4 +86,19 @@ export default {
       <BaseButton text="Submit" @click="show = false" />
     </template>
   </Modals> -->
+  <TodoList>
+    <template #default="{ name, done }">
+      <div class="flex items-center">
+        <input type="checkbox" class="w-4 h-4 shrink-0" :checked="done" />
+        <label class="w-full">{{ name }}</label>
+      </div>
+    </template>
+    <template #footer="{ all, todo, done }">
+      <div class="flex justify-between items-center">
+        <span>All: {{ all }} </span>
+        <span>Todo: {{ todo }} </span>
+        <span>Done: {{ done }} </span>
+      </div>
+    </template>
+  </TodoList>
 </template>
